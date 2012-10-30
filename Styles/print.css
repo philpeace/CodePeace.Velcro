@@ -4,21 +4,4 @@
     {
         display: none;
     }
-
-    #branding h1
-    {
-        overflow: visible;
-    }
-
-    #branding h1 a
-    {
-        position: relative;
-        display: block;
-        padding-top: 0;
-    }
-
-    #branding h1 span
-    {
-        top: 3px;
-    }
 }
