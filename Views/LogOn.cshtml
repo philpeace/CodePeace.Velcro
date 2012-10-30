@@ -1,20 +1,8 @@
 ﻿@using Orchard.ContentManagement
 @using Orchard.UI.Notify
 @{
-    //var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
     var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
-    //WorkContext.Layout["Messages"] = null;
-}
-
-@if (WorkContext.Layout["Messages"] != null)
-{
-    foreach (var msg in WorkContext.Layout["Messages"])
-    {
-        if (msg.Type == NotifyType.Error)
-        {
-            msg.Message = "";
-        }
-    }
 }
 
 <h1>@Html.TitleForPage(T("Welcome, please sign in"))</h1>

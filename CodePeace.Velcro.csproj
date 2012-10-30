@@ -57,9 +57,6 @@
     <Content Include="Styles\bootstrap-responsive.min.css" />
     <Content Include="Styles\bootstrap.css" />
     <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\IE6.css" />
-    <Content Include="Styles\IE7.css" />
-    <Content Include="Styles\IE8.css" />
     <Content Include="Styles\img\glyphicons-halflings-white.png" />
     <Content Include="Styles\img\glyphicons-halflings.png" />
     <Content Include="Styles\print.css" />
