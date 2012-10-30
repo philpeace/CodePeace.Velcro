@@ -1,0 +1,17 @@
+﻿@using Orchard.ContentManagement;
+@{
+    var userName = ((IContent)Model.ContentItem).As<Orchard.Security.IUser>().UserName;
+}
+@if (WorkContext.CurrentUser != null && WorkContext.CurrentUser.UserName == userName)
+{
+    <div class="profile-foot">
+        <p>
+            @Html.ActionLink(T("Edit My Profile").Text, "Edit", new {
+                     ReturnUrl = Model.ReturnUrl,
+                     ToolName = Model.ToolName
+                 }, new {
+                     @class = "btn"
+                 })
+        </p>
+    </div>
+}

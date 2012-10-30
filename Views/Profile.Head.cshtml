@@ -1,0 +1,22 @@
+@using Orchard.ContentManagement;
+@{
+    var userName = ((IContent)Model.ContentItem).As<Orchard.Security.IUser>().UserName;
+
+    var firstName = (string)Model.ContentItem.ProfilePart.Firstname.Value;
+    var lastName = (string)Model.ContentItem.ProfilePart.Lastname.Value;
+}
+<h1>My Profile</h1>
+@if (Model.ReturnUrl != null && Model.ToolName != null)
+{
+    <p>Back to <a href="@Model.ReturnUrl">@Model.ToolName</a></p>
+}
+<div class="profile-head">
+    @if (WorkContext.CurrentUser != null && WorkContext.CurrentUser.UserName == userName)
+    {
+        <h2>@Html.TitleForPage(@T("{0} {1}", firstName, lastName))</h2>
+    }
+    else
+    {
+        <h2>@Html.TitleForPage(userName)</h2>
+    }
+</div>

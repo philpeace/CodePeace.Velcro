@@ -1,0 +1,9 @@
+@using Orchard.ContentManagement
+
+@Display(New.Profile_Head(ContentItem: Model.ContentItem, ReturnUrl: Model.ReturnUrl, ToolName: Model.ToolName ))
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary(T("Please correct the errors and try again.").ToString(), new { @class = "alert alert-error" })
+    @Display(Model)
+}

@@ -1,0 +1,29 @@
+﻿.hero-unit
+{
+    position: relative;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/mydrfoster/content/images/blue_sky.jpg',sizingMethod='scale');
+    zoom: 1;
+}
+
+.hero-unit h1
+{
+    position: relative;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#66141e32, endColorstr=#66141e32);
+    zoom: 1;
+}
+
+ul.inline
+{
+    display: inline;
+}
+
+ul.inline li
+{
+    display: block;
+    float: left;
+}
+
+#branding h1 a
+{
+    height: 0;
+}

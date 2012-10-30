@@ -1,0 +1,1 @@
+﻿<a @if (Model.Item.Items.Length > 0) { <text>class="dropdown-toggle" data-toggle="dropdown" </text> } href="@Model.Href" @if (Model.Href.StartsWith("http")) { <text>target="_blank"</text> }>@Model.Text @if (Model.Item.Items.Length > 0) { <b class="caret"></b> }</a>

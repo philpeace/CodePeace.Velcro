@@ -1,0 +1,10 @@
+﻿<h1>This is not the page you are looking for</h1>
+<p class="no-js-hide">You might like to go <a href="javascript:window.history.go(-1)">back to your previous page</a> and try again.</p>
+<p class="js-hide">You might like to go back to your @if (Model.ReferrerUrl != null && Model.ReferrerUrl.Length > 0 && Model.ReferrerUrl != Model.RequestedUrl)
+                                                        {<a href="@Model.ReferrerUrl">previous page</a>} else {<text>previous page</text>} and try again.</p>
+
+<p>Otherwise:</p>
+<ul>
+    <li>If this keeps happening please contact <a href="/customersupport">Customer Support</a></li>
+    <li>or go back to the <a href="/">Home page</a></li>
+</ul>

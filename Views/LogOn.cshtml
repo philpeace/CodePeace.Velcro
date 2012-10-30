@@ -1,0 +1,53 @@
+﻿@using Orchard.ContentManagement
+@using Orchard.UI.Notify
+@{
+    //var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+    //WorkContext.Layout["Messages"] = null;
+}
+
+@if (WorkContext.Layout["Messages"] != null)
+{
+    foreach (var msg in WorkContext.Layout["Messages"])
+    {
+        if (msg.Type == NotifyType.Error)
+        {
+            msg.Message = "";
+        }
+    }
+}
+
+<h1>@Html.TitleForPage(T("Welcome, please sign in"))</h1>
+
+@Html.ValidationSummary(T("Login was unsuccessful. Please correct the errors and try again.").ToString(), new { @class = "alert alert-error" })
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset class="no-legend">
+        <legend>@T("Sign in")</legend>
+        <div class="control-group @if (Html.ValidationMessage("userNameOrEmail") != null) { <text>error</text> }">
+            <label for="username-email" class="control-label">@T("Username")</label>
+            <div class="controls">
+                @Html.TextBox("userNameOrEmail", "", new { id = "username-email", autofocus = "autofocus", @class = "span3" })
+                @Html.ValidationMessage("userNameOrEmail", new { @class="help-inline" })
+            </div>
+        </div>
+        <div class="control-group @if (Html.ValidationMessage("password") != null) { <text>error</text> }">
+            <label for="password" class="control-label">@T("Password")</label>
+            <div class="controls">
+                @Html.Password("password", null, new { @class = "span3" })
+                @Html.ValidationMessage("password", new { @class="help-inline" })
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn">@T("Sign in")</button>
+@if (enableLostPassword)
+{
+    <p>
+        @Html.ActionLink(T("Forgotten Password").Text, "RequestLostPassword")
+    </p>
+}
+        </div>
+    </fieldset>
+}
+

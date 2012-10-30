@@ -1,0 +1,19 @@
+﻿@using Orchard.UI.Notify
+@{
+    var messageTypeWrapper = new Dictionary<NotifyType, string>
+    {
+        { NotifyType.Information, "info" },
+        { NotifyType.Error, "error" },
+        { NotifyType.Warning, "warning" }
+    };
+
+    var message = Html.Encode(Model.Message);
+}
+
+@if (message.Length > 0)
+{
+    <div class="alert alert-@messageTypeWrapper[Model.Type] @if (message.Contains("\n"))
+                                                            {
+                                                                <text>alert-block</text>
+                                                            } ">@Html.Raw(message.Replace("\n", "<br />"))</div>
+}

@@ -1,0 +1,8 @@
+﻿@using DFI.UserVoice.Models
+@using Orchard.ContentManagement
+@{
+    var url = Model.Href;
+}
+
+<a @if (Model.Item.Items.Length > 0) { <text>class="dropdown-toggle" data-toggle="dropdown" </text> } href="@url" @if (url.StartsWith("http")) { <text>target="_blank"</text> }>@Model.Text @if (Model.Item.Items.Length > 0) { <b class="caret"></b> }</a>
+

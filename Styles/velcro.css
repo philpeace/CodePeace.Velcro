@@ -1,0 +1,12 @@
+﻿ul.content-items 
+{
+    list-style-type: none;
+    margin-left: 0;
+    display: block;
+}
+
+.js .js-hide,
+.no-js .no-js-hide
+{
+    display: none;
+}

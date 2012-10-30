@@ -1,0 +1,32 @@
+﻿@using System.Web.Mvc;
+    <ul id="user-menu" class="nav pull-right">
+@if (WorkContext.CurrentUser != null)
+{
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">@T("Welcome <strong>{0}</strong>!", WorkContext.CurrentUser.UserName)<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("My Profile", "Index", new { Controller = "Home", Area = "Contrib.Profile", username = WorkContext.CurrentUser.UserName, ReturnUrl = @Request.QueryString["returnurl"], ToolName = @Request.QueryString["toolname"] })
+                </li>
+                <li>
+                    @Html.ActionLink("Change Password", "ChangePassword", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = @Request.QueryString["returnurl"], ToolName = @Request.QueryString["toolname"] })
+                </li>
+                @if (AuthorizedFor(Orchard.Security.StandardPermissions.AccessAdminPanel))
+                {
+                    <li>
+                        @Html.ActionLink(T("Dashboard").ToString(), "Index", new { Area = "Dashboard", Controller = "Admin" })
+                    </li>
+                }
+            </ul>
+        </li>
+        <li>
+            @Html.ActionLink(T("Log off").ToString(), "LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = "/" }, new { rel = "nofollow" })
+        </li>
+}
+else
+{ 
+        <li>
+            @Html.ActionLink(T("Log on").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = "/" }, new { rel = "nofollow" })
+        </li>
+}
+    </ul>
