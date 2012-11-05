@@ -5,6 +5,7 @@
     display: block;
 }
 
+/*=== This will only work with Modernizr installed ===*/
 .js .js-hide,
 .no-js .no-js-hide
 {
