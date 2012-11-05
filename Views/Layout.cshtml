@@ -65,22 +65,24 @@
                     @Zone(Model.BeforeMain)
                 </div>
             }
+        </div>
+    }
+    @if (Model.Messages != null || Model.BeforeContent != null || Model.Content != null || Model.AfterContent != null || Model.AsideFirst != null || Model.AsideSecond != null)
+    {
+        <div class="row">
             @if (Model.AsideFirst != null)
             {
-                <div class="span4 @if (Model.BeforeMain == null){<text>offset8</text>}">
+                <div class="span3">
                     <aside id="aside-first">
                         @Zone(Model.AsideFirst)
                     </aside>
                 </div>
             }
-        </div>
-    }
-    @if (Model.Messages != null || Model.BeforeContent != null || Model.Content != null || Model.AfterContent != null || Model.AsideSecond != null)
-    {
-        <div class="row">
             @if (Model.Messages != null || Model.BeforeContent != null || Model.Content != null || Model.AfterContent != null)
             {
-                <div class="span8">
+                var mainColClass = (Model.AsideSecond == null) ? "span9" : "span6";
+                
+                <div class="@mainColClass">
                     @if (Model.Messages != null)
                     {
                         <div id="messages">
@@ -134,17 +136,20 @@
     @if (Model.TripelFirst != null || Model.TripelSecond != null || Model.TripelThird != null)
     {
         <div class="row" id="layout-triple-container">
-            @if (Model.TripelFirst != null) {
+            @if (Model.TripelFirst != null)
+            {
                 <div class="@tripleClass triple" id="triple-first">
                     @Zone(Model.TripelFirst)
                 </div>
             }
-            @if (Model.TripelSecond != null) {
+            @if (Model.TripelSecond != null)
+            {
                 <div class="@tripleClass triple" id="triple-second">
                     @Zone(Model.TripelSecond)
                 </div>
             }
-            @if (Model.TripelThird != null) {
+            @if (Model.TripelThird != null)
+            {
                 <div class="@tripleClass triple" id="triple-third">
                     @Zone(Model.TripelThird)
                 </div>
@@ -158,22 +163,26 @@
             {
                 <div class="well">
                     <div class="row">
-                        @if (Model.FooterQuadFirst != null) {
+                        @if (Model.FooterQuadFirst != null)
+                        {
                             <div class="@footerQuadClass" id="footer-quad-first">
                                 @Zone(Model.FooterQuadFirst)
                             </div>
                         }
-                        @if (Model.FooterQuadSecond != null) {
+                        @if (Model.FooterQuadSecond != null)
+                        {
                             <div class="@footerQuadClass" id="footer-quad-second">
                                 @Zone(Model.FooterQuadSecond)
                             </div>
                         }
-                        @if (Model.FooterQuadThird != null) {
+                        @if (Model.FooterQuadThird != null)
+                        {
                             <div class="@footerQuadClass" id="footer-quad-third">
                                 @Zone(Model.FooterQuadThird)
                             </div>
                         }
-                        @if (Model.FooterQuadFourth != null) {
+                        @if (Model.FooterQuadFourth != null)
+                        {
                             <div class="@footerQuadClass" id="footer-quad-fourth">
                                 @Zone(Model.FooterQuadFourth)
                             </div>
@@ -181,7 +190,8 @@
                     </div>
                 </div>
             }
-            @if (Model.Footer != null) {
+            @if (Model.Footer != null)
+            {
                 <div class="row">
                     <div class="span12" id="footer-sig">
                         @Zone(Model.Footer)

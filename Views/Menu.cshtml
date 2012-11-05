@@ -3,6 +3,11 @@
     var tag = Tag(Model, "ul");
     tag.Attributes["class"] = "";
     tag.AddCssClass("nav");
+
+    foreach (var t in Model.Classes)
+    {
+        tag.AddCssClass(t);
+    }
     
     var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Items);
 

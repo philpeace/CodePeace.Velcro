@@ -117,6 +117,8 @@
     <Content Include="Views\Parts\Common.Metadata.cshtml" />
     <Content Include="Views\Parts\Common.Metadata.Summary.cshtml" />
     <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Parts.MenuWidget-AsideFirst.cshtml" />
+    <Content Include="Views\Widget-Name-Pills.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
