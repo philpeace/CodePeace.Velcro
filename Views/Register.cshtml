@@ -1,0 +1,34 @@
+﻿<h1>@Html.TitleForPage(T("Create a New Account").ToString())</h1>
+<p>@T("Use the form below to create a new account.")</p>
+<p>@T("Passwords are required to be a minimum of {0} characters in length.", ViewData["PasswordLength"])</p>
+@Html.ValidationSummary(T("Account creation was unsuccessful. Please correct the errors and try again.").ToString()) 
+
+@using (Html.BeginFormAntiForgeryPost("", FormMethod.Post, new { @class = "form-inline" }))
+{
+    <fieldset>
+        <legend>@T("Account Information")</legend>
+        <div class="control-group @if (Html.ValidationMessage("username") != null) { <text>error</text> }">
+            <label for="username" class="control-label">@T("Username:")</label>
+            @Html.TextBox("username") 
+            @Html.ValidationMessage("username", new { @class="help-inline" }) 
+        </div>
+        <div class="control-group @if (Html.ValidationMessage("email") != null) { <text>error</text> }">
+            <label for="email" class="control-label">@T("Email:")</label>
+            @Html.TextBox("email") 
+            @Html.ValidationMessage("email", new { @class="help-inline" }) 
+        </div>
+        <div class="control-group @if (Html.ValidationMessage("password") != null) { <text>error</text> }">
+            <label for="password" class="control-label">@T("Password:")</label>
+            @Html.Password("password") 
+            @Html.ValidationMessage("password", new { @class="help-inline" }) 
+        </div>
+        <div class="control-group @if (Html.ValidationMessage("confirmPassword") != null) { <text>error</text> }">
+            <label for="confirmPassword" class="control-label">@T("Confirm password:")</label>
+            @Html.Password("confirmPassword") 
+            @Html.ValidationMessage("confirmPassword", new { @class="help-inline" }) 
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">@T("Register")</button>
+        </div>
+    </fieldset>
+ } 

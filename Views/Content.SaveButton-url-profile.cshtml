@@ -1,5 +1,5 @@
 ﻿@using Orchard.ContentManagement
 <fieldset class="save-button">
-    <button class="btn" type="submit" name="submit.Save" value="submit.Save">@T("Save")</button>
+    <button class="btn btn-primary" type="submit" name="submit.Save" value="submit.Save">@T("Save")</button>
     @Html.ActionLink(T("Cancel").Text, "Index", new { username = ((IContent)Model.ContentItem).As<Orchard.Security.IUser>().UserName, ReturnUrl = Model.ReturnUrl, ToolName = Model.ToolName }, new { @class = "btn" })
 </fieldset>

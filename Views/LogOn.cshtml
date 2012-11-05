@@ -5,13 +5,19 @@
     var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
 }
 
-<h1>@Html.TitleForPage(T("Welcome, please sign in"))</h1>
+<h1>@Html.TitleForPage((string)Model.Title)</h1>
+
+<p>
+    @T("Please enter your username and password.") 
+    @if(userCanRegister) { @Html.ActionLink(T("Register").Text, "Register") @T(" if you don't have an account.") }
+    @if(enableLostPassword) { <text> </text> @Html.ActionLink(T("Lost your Password?").Text, "RequestLostPassword") }
+</p>
 
 @Html.ValidationSummary(T("Login was unsuccessful. Please correct the errors and try again.").ToString(), new { @class = "alert alert-error" })
 
 @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    <fieldset class="no-legend">
+    <fieldset>
         <legend>@T("Sign in")</legend>
         <div class="control-group @if (Html.ValidationMessage("userNameOrEmail") != null) { <text>error</text> }">
             <label for="username-email" class="control-label">@T("Username")</label>
@@ -28,13 +34,7 @@
             </div>
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn">@T("Sign in")</button>
-@if (enableLostPassword)
-{
-    <p>
-        @Html.ActionLink(T("Forgotten Password").Text, "RequestLostPassword")
-    </p>
-}
+            <button type="submit" class="btn btn-primary">@T("Sign in")</button>
         </div>
     </fieldset>
 }

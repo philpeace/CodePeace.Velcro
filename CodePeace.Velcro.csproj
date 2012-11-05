@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,13 +109,14 @@
     <Content Include="Views\Orchard.Users\Account\ChangePasswordSuccess.cshtml" />
     <Content Include="Views\Orchard.Users\Account\LostPassword.cshtml" />
     <Content Include="Views\Orchard.Users\Account\RequestLostPassword.cshtml" />
-    <Content Include="Views\Parts\Common.Metadata.cshtml" />
-    <Content Include="Views\Parts\Common.Metadata.Summary.cshtml" />
     <Content Include="Views\Profile.Head.cshtml" />
     <Content Include="Views\Profile.Tail.cshtml" />
     <Content Include="Views\User.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Widget-Name-Hero.cshtml" />
+    <Content Include="Views\Parts\Common.Metadata.cshtml" />
+    <Content Include="Views\Parts\Common.Metadata.Summary.cshtml" />
+    <Content Include="Views\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
