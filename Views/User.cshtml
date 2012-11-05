@@ -1,13 +1,21 @@
 ﻿@using System.Web.Mvc;
+@using Orchard.ContentManagement
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+}
     <ul id="user-menu" class="nav pull-right">
 @if (WorkContext.CurrentUser != null)
 {
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">@T("Welcome <strong>{0}</strong>!", WorkContext.CurrentUser.UserName)<b class="caret"></b></a>
             <ul class="dropdown-menu">
+                @*
+                <!-- If you  -->
                 <li>
                     @Html.ActionLink("My Profile", "Index", new { Controller = "Home", Area = "Contrib.Profile", username = WorkContext.CurrentUser.UserName, ReturnUrl = @Request.QueryString["returnurl"], ToolName = @Request.QueryString["toolname"] })
                 </li>
+*@
                 <li>
                     @Html.ActionLink("Change Password", "ChangePassword", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = @Request.QueryString["returnurl"], ToolName = @Request.QueryString["toolname"] })
                 </li>
@@ -25,8 +33,14 @@
 }
 else
 { 
+    <li>
+        @Html.ActionLink(T("Log on").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = "/" }, new { rel = "nofollow" })
+    </li>
+    if (ViewContext.RouteData.Values["action"].ToString() != "Register")
+    {
         <li>
-            @Html.ActionLink(T("Log on").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = "/" }, new { rel = "nofollow" })
+            @Html.ActionLink(T("Register").ToString(), "Register", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = "/" }, new { rel = "nofollow" })
         </li>
+    }
 }
     </ul>

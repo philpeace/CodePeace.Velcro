@@ -1,5 +1,6 @@
 ﻿@using Orchard.ContentManagement
 @using Orchard.UI.Notify
+@using System.Web.Mvc
 @{
     var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
     var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
