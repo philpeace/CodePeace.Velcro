@@ -10,8 +10,8 @@
              Parts_Blogs_Blog_BlogPostCount="Meta:3"/>
     </Match>
   </Match>
-  <Match Path="/About">
+-->
+  <Match Path="~/">
     <Place Parts_Common_Metadata="-"/>
   </Match>
--->
 </Placement>

@@ -27,7 +27,10 @@
    
     /* Inserting some ad hoc shapes
     ***************************************************************/
-    WorkContext.Layout.Navigation.Add(New.User(), "5"); // Login and dashboard links
+
+    WorkContext.Layout.Navigation.Add(New.Branding(), "0"); // Site name and link to the home page
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Orchard
+    WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
 }
 
 <div class="container">
@@ -45,7 +48,9 @@
     @if (Model.Header != null) {
         <div class="row">
             <header id="layout-header">
-                @Zone(Model.Header)
+                <div class="span12">
+                    @Zone(Model.Header)
+                </div>
             </header>
         </div>
     }
@@ -56,7 +61,7 @@
             </div>
         </div>
     }
-    @if (Model.BeforeMain != null || Model.AsideFirst != null)
+    @if (Model.BeforeMain != null)
     {
         <div class="row">
             @if (Model.BeforeMain != null)
@@ -156,48 +161,48 @@
             }
         </div>
     }
-    @if (Model.Footer != null || Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null)
-    {
-        <footer id="footer">
-            @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null)
-            {
-                <div class="well">
-                    <div class="row">
-                        @if (Model.FooterQuadFirst != null)
-                        {
-                            <div class="@footerQuadClass" id="footer-quad-first">
-                                @Zone(Model.FooterQuadFirst)
-                            </div>
-                        }
-                        @if (Model.FooterQuadSecond != null)
-                        {
-                            <div class="@footerQuadClass" id="footer-quad-second">
-                                @Zone(Model.FooterQuadSecond)
-                            </div>
-                        }
-                        @if (Model.FooterQuadThird != null)
-                        {
-                            <div class="@footerQuadClass" id="footer-quad-third">
-                                @Zone(Model.FooterQuadThird)
-                            </div>
-                        }
-                        @if (Model.FooterQuadFourth != null)
-                        {
-                            <div class="@footerQuadClass" id="footer-quad-fourth">
-                                @Zone(Model.FooterQuadFourth)
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-            @if (Model.Footer != null)
-            {
-                <div class="row">
-                    <div class="span12" id="footer-sig">
-                        @Zone(Model.Footer)
-                    </div>
-                </div>
-            }
-        </footer>
-    }
 </div>
+@if (Model.Footer != null || Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null)
+{
+    <footer class="footer">
+        <div class="container">
+        @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null)
+        {
+            <div class="row">
+                @if (Model.FooterQuadFirst != null)
+                {
+                    <div class="@footerQuadClass" id="footer-quad-first">
+                        @Zone(Model.FooterQuadFirst)
+                    </div>
+                }
+                @if (Model.FooterQuadSecond != null)
+                {
+                    <div class="@footerQuadClass" id="footer-quad-second">
+                        @Zone(Model.FooterQuadSecond)
+                    </div>
+                }
+                @if (Model.FooterQuadThird != null)
+                {
+                    <div class="@footerQuadClass" id="footer-quad-third">
+                        @Zone(Model.FooterQuadThird)
+                    </div>
+                }
+                @if (Model.FooterQuadFourth != null)
+                {
+                    <div class="@footerQuadClass" id="footer-quad-fourth">
+                        @Zone(Model.FooterQuadFourth)
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.Footer != null)
+        {
+            <div class="row">
+                <div class="span12" id="footer-sig">
+                    @Zone(Model.Footer)
+                </div>
+            </div>
+        }
+        </div>
+    </footer>
+}

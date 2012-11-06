@@ -119,6 +119,8 @@
     <Content Include="Views\Register.cshtml" />
     <Content Include="Views\Parts.MenuWidget-AsideFirst.cshtml" />
     <Content Include="Views\Parts.MenuWidget-AsideSecond.cshtml" />
+    <Content Include="Views\Branding.cshtml" />
+    <Content Include="Views\BadgeOfHonor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">

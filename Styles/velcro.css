@@ -5,6 +5,14 @@
     display: block;
 }
 
+.footer
+{
+    padding: 70px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+    background-color: whiteSmoke;
+}
+
 /*=== This will only work with Modernizr installed ===*/
 .js .js-hide,
 .no-js .no-js-hide
