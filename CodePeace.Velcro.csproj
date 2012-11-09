@@ -125,10 +125,6 @@
     <Content Include="Views\Fields.MediaPicker.cshtml" />
     <Content Include="Views\Parts.Comments.cshtml" />
     <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
-    <Content Include="Views\Widget-Name-Pills.cshtml" />
-    <Content Include="Views\Widget-AsideFirst.cshtml">
-      <SubType>Code</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
