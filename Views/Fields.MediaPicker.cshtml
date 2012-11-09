@@ -1,15 +1,5 @@
 ﻿@using Orchard.Utility.Extensions;
 
-@{
-    string name = Model.ContentField.DisplayName;  
-}
-@* Other available properties *@
-
-@*<p class="media-picker-field media-picker-field-@name.HtmlClassify()">
-    <span class="name">@name:</span>
-    <span class="value">@Model.ContentField.Url</span>
-</p>*@
-
 @* 
     Alternate Text: @Model.ContentField.AlternateText
     Class: @Model.ContentField.Class
@@ -22,5 +12,5 @@
 *@
 @if (Model.ContentField != null && Model.ContentField.Url != null)
 {
-<img src="@Href(Model.ContentField.Url)" alt="@Model.ContentField.AlternateText" />
+<img src="@Href(Model.ContentField.Url)" class="@Model.ContentField.Class" alt="@Model.ContentField.AlternateText" width="@Model.ContentField.Width" height="@Model.ContentField.Height" />
 }

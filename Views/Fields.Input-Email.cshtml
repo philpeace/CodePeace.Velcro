@@ -2,8 +2,10 @@
 @using Orchard.Utility.Extensions;
 @{
     string value = (string)Model.ContentField.Value;
-    if (!string.IsNullOrEmpty(value)) {
+    
+    if (!string.IsNullOrEmpty(value))
+    {
         string name = Model.ContentField.DisplayName;
-    <p class="text-field">@T(name): <a href="mailto:@value">@value</a></p>
+    <p>@T(name): <a href="mailto:@value">@value</a></p>
     }
 }
