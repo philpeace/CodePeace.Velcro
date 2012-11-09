@@ -4,11 +4,14 @@
     tag.Attributes["class"] = "";
     tag.AddCssClass("nav");
 
-    foreach (var t in Model.Classes)
+    if (Model.Classes.Count > 0)
     {
-        tag.AddCssClass(t);
+        foreach (var c in Model.Classes)
+        {
+            tag.AddCssClass(c);
+        }
     }
-    
+
     var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Items);
 
     if (items.Any()) {

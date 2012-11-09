@@ -1,0 +1,91 @@
+﻿@using Orchard.Comments.Models;
+@using Orchard.Comments;
+@using Orchard.Security;
+@using Orchard.Utility.Extensions;
+
+@{
+    var contextExists = TempData["CreateCommentContext.Name"] != null;
+    var name = Convert.ToString(TempData["CreateCommentContext.Name"]);
+    var commentText = Convert.ToString(TempData["CreateCommentContext.CommentText"]);
+    var email = Convert.ToString(TempData["CreateCommentContext.Email"]);
+    var siteName = Convert.ToString(TempData["CreateCommentContext.SiteName"]);
+}
+
+@if (Model.ContentPart.Comments.Count > 0)
+{
+    <div id="comments">
+        <h2 class="comment-count">@T.Plural("1 Comment", "{0} Comments", (int)Model.ContentPart.Comments.Count)</h2>
+        @{Html.RenderPartial("ListOfComments", (IEnumerable<Orchard.Comments.Models.CommentPart>)Model.ContentPart.Comments);}
+    </div>
+}
+
+@if (Model.ContentPart.CommentsActive == false)
+{
+    if (Model.ContentPart.Comments.Count > 0)
+    {
+        <div id="comments">
+            <p class="comment-disabled muted">@T("Comments have been disabled for this content.")</p>
+        </div>
+    }
+}
+else if (WorkContext.CurrentUser == null && !AuthorizedFor(Permissions.AddComment))
+{
+    <h2 id="add-comment">@T("Add a Comment")</h2>
+    <p class="info message">@T("You must {0} to comment.", Html.ActionLink(T("log on").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = string.Format("{0}#addacomment", Context.Request.RawUrl) }))</p>
+}
+else
+{
+    using (Html.BeginForm("Create", "Comment", new { area = "Orchard.Comments" }, FormMethod.Post, new { @class = "comment-form form-horizontal" }))
+    { 
+        @Html.ValidationSummary("Yoru comment was unsuccessful. Please correct the errors and try again", new { @class = "alert alert-error" }) 
+        <fieldset>
+            <legend id="add-comment">@T("Add a Comment")</legend> 
+            @if (WorkContext.CurrentUser == null)
+            {
+                <div class="control-group @if (Html.ValidationMessage("Name") != null) { <text>error</text> }">
+                    <label for="Name" class="control-label">@T("Name")</label>
+                    <div class="controls">
+                        <input id="Name" class="text" name="Name" type="text" value="@(contextExists ? name : String.Empty)" />
+                    </div>
+                </div>
+                <div class="control-group @if (Html.ValidationMessage("Email") != null) { <text>error</text> }">
+                    <label for="Email" class="control-label">@T("Email")</label>
+                    <div class="controls">
+                        <input id="Email" class="text" name="Email" type="text" value="@(contextExists ? email : String.Empty)"/>
+                    </div>
+                </div>
+                <div class="control-group @if (Html.ValidationMessage("siteName") != null) { <text>error</text> }">
+                    <label for="SiteName" class="control-label">@T("Url")</label>
+                    <div class="controls">
+                        <input id="SiteName" class="text" name="SiteName" type="text" value="@(contextExists ? siteName : String.Empty)"/>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @Html.Hidden("Name", WorkContext.CurrentUser.UserName ?? "")
+                @Html.Hidden("Email", WorkContext.CurrentUser.Email ?? "")
+            }
+
+            @if (WorkContext.CurrentUser != null)
+            {
+                <p class="lead help-block">
+                    @T("Hi, {0}!", Convert.ToString(Html.ItemDisplayText(WorkContext.CurrentUser)))
+                </p>
+            }
+
+            <div class="control-group @if (Html.ValidationMessage("CommentText") != null) { <text>error</text> }">
+                <label for="comment-text" class="control-label">@T("Comment")</label>
+                <div class="controls">
+                    <textarea id="comment-text" rows="10" class="span5" cols="30" name="CommentText">@(contextExists ? commentText : String.Empty)</textarea>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">@T("Submit Comment")</button>
+                @Html.Hidden("CommentedOn", (int) Model.ContentPart.ContentItem.Id) 
+                @Html.Hidden("ReturnUrl", Context.Request.ToUrlString()) 
+                @Html.AntiForgeryTokenOrchard() 
+            </div>
+        </fieldset>
+    }
+} 

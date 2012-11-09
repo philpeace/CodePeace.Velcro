@@ -13,6 +13,23 @@
     background-color: whiteSmoke;
 }
 
+ul.inline,
+ol.inline
+{
+    margin-left: 0;
+    list-style: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+ul.inline li,
+ol.inline li
+{
+    margin-left: 0;
+    list-style: none;
+    display: inline;
+}
+
 /*=== This will only work with Modernizr installed ===*/
 .js .js-hide,
 .no-js .no-js-hide

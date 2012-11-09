@@ -1,0 +1,14 @@
+﻿@{
+    var tagsHtml = new List<IHtmlString>();
+    foreach(var t in Model.Tags) {
+        tagsHtml.Add(Html.ActionLink((string)t.TagName, "Search", "Home", new { area = "Orchard.Tags", tagName = (string)t.TagName }, new { @class = "label" }));
+    }
+}
+
+@if (tagsHtml.Any()) {
+    <ul class="inline">
+        @foreach(var t in Model.Tags) {
+            <li>@Html.ActionLink((string)t.TagName, "Search", "Home", new { area = "Orchard.Tags", tagName = (string)t.TagName }, new { @class = "label" })</li>
+        }
+    </ul>
+}

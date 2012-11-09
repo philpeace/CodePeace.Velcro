@@ -123,6 +123,13 @@
     <Content Include="Views\BadgeOfHonor.cshtml" />
     <Content Include="Views\Fields.Input-Email.cshtml" />
     <Content Include="Views\Fields.MediaPicker.cshtml" />
+    <Content Include="Views\Parts.Comments.cshtml" />
+    <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
+    <Content Include="Views\~Parts.MenuWidget.cshtml" />
+    <Content Include="Views\Widget-Name-Pills.cshtml" />
+    <Content Include="Views\Widget-AsideFirst.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
@@ -130,7 +137,12 @@
       </SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
