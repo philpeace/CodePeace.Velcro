@@ -121,6 +121,8 @@
     <Content Include="Views\Parts.MenuWidget-AsideSecond.cshtml" />
     <Content Include="Views\Branding.cshtml" />
     <Content Include="Views\BadgeOfHonor.cshtml" />
+    <Content Include="Views\Fields.Input-Email.cshtml" />
+    <Content Include="Views\Fields.MediaPicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
