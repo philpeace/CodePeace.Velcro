@@ -67,6 +67,8 @@
     <Content Include="Styles\bootstrap-responsive.min.css" />
     <Content Include="Styles\bootstrap.css" />
     <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\carousel.css" />
+    <Content Include="Styles\docs.css" />
     <Content Include="Styles\img\glyphicons-halflings-white.png" />
     <Content Include="Styles\img\glyphicons-halflings.png" />
     <Content Include="Styles\print.css" />
