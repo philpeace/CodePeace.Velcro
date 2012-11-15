@@ -1,0 +1,14 @@
+﻿@using Orchard.Utility.Extensions;
+@{
+    if (Model.Title != null) {
+        Layout.Title = Model.Title;
+    }
+    
+    var contentTypeClassName = ((string)Model.ContentItem.ContentType).HtmlClassify();
+}
+<section class="content-item @contentTypeClassName">
+    <header>
+        <h2><a href="@Model.Href">@Model.ContentItem.TitlePart.Title</a></h2>
+    </header>
+    @Display(Model.Content)
+</section>

@@ -127,6 +127,9 @@
     <Content Include="Views\Fields.MediaPicker.cshtml" />
     <Content Include="Views\Parts.Comments.cshtml" />
     <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
+    <Content Include="Views\Content-Event.Detail.cshtml" />
+    <Content Include="Views\Content-Event.Event.cshtml" />
+    <Content Include="Views\Fields.DateTime-Event-StartDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
