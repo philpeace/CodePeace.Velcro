@@ -85,7 +85,7 @@
             }
             @if (Model.Messages != null || Model.BeforeContent != null || Model.Content != null || Model.AfterContent != null)
             {
-                var mainColClass = (Model.AsideSecond == null) ? "span9" : "span6";
+                var mainColClass = (Model.AsideFirst == null) ? "span6 offset3" : "span6";
                 
                 <div class="@mainColClass">
                     @if (Model.Messages != null)
