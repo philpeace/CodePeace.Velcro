@@ -98,7 +98,6 @@
     <Content Include="Views\Contrib.Profile\Home\Index.cshtml" />
     <Content Include="Views\Document.cshtml" />
     <Content Include="Views\ErrorPage.cshtml" />
-    <Content Include="Views\Items\Content-Update.Summary.cshtml" />
     <Content Include="Views\Layout.cshtml" />
     <Content Include="Views\LogOn.cshtml" />
     <Content Include="Views\Menu.cshtml" />
@@ -127,9 +126,6 @@
     <Content Include="Views\Fields.MediaPicker.cshtml" />
     <Content Include="Views\Parts.Comments.cshtml" />
     <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
-    <Content Include="Views\Content-Event.Detail.cshtml" />
-    <Content Include="Views\Content-Event.Event.cshtml" />
-    <Content Include="Views\Fields.DateTime-Event-StartDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
