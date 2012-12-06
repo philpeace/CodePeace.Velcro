@@ -35,6 +35,11 @@ ol.inline li
     cursor: pointer;
 }
 
+.alert p
+{
+    margin: 0;
+}
+
 /*=== This will only work with Modernizr installed ===*/
 .js .js-hide,
 .no-js .no-js-hide

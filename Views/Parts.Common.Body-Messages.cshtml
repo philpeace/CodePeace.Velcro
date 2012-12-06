@@ -1,0 +1,8 @@
+﻿@{
+    var alertClass = Model.ContentItem.WidgetPart.Name;
+}
+
+<div class="alert @alertClass">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    @Model.Html
+</div>

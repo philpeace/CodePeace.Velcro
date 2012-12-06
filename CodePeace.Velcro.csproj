@@ -126,6 +126,12 @@
     <Content Include="Views\Fields.MediaPicker.cshtml" />
     <Content Include="Views\Parts.Comments.cshtml" />
     <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
+    <Content Include="Views\Widget-Messages.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Widget-Name-alert-error.cshtml" />
+    <Content Include="Views\Widget-Name-alert-success.cshtml" />
+    <Content Include="Views\Widget-Name-alert-info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Web.config">
