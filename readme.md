@@ -5,7 +5,7 @@ An Orchard CMS theme based on Twitter Bootstrap [http://twitter.github.com/boots
 In order to get much of the neat Bootstrap styled widgets working properly you will need to enable the 'Widget Alternate' module in Orchard
 
 ## Documentation
-There's documentation in teh [wiki](https://github.com/philpeace/CodePeace.Velcro/wiki)
+There's documentation in the [wiki](https://github.com/philpeace/CodePeace.Velcro/wiki)
 
 ## License
 
