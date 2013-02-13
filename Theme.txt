@@ -1,5 +1,5 @@
 ﻿Name: CodePeace.Velcro
-Version: 1.0.8
+Version: 1.1.0
 Author: Phil Peace
 Tags: Awesome, Twitter, Bootstrap, html5, css3
 Description: A theme based on the Twitter Bootstrap, requires the 'Widget Alternate' module to work properly
